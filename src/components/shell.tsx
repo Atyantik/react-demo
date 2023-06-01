@@ -1,12 +1,14 @@
 import { Outlet } from '@reactpwa/core';
 import { FC } from 'react';
+import { Footer } from './footer';
+import { Header } from './header';
 
 const Shell: FC = () => (
-  <div>
-    <header><i>Header</i></header>
+  <>
+    <Header />
     <Outlet />
-    <footer><i>Footer</i></footer>
-  </div>
+    <Footer />
+  </>
 );
 
 export default Shell;

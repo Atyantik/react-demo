@@ -14,7 +14,7 @@
       "@services/*": ["./src/services/*"],
       "@atoms/*": ["./src/atoms/*"],
       "@typedefs/*": ["./src/typedefs/*"]
-    },
+    }
   },
   "exclude": ["node_modules"],
   "include": ["./src/**/*"]

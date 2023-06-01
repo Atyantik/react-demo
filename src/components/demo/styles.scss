@@ -1,0 +1,17 @@
+@import '@resources/css/scss/variable';
+@import '@resources/css/scss/mixins';
+.label {
+  color: rgba($black, 0.5);
+  margin-bottom: rem(6px);
+}
+.flex_Container {
+  display: flex;
+  gap: rem(16px);
+  align-items: center;
+}
+.delivery_Pickup_Box {
+  padding-block: rem(16px);
+}
+.flex_1 {
+  flex: 1;
+}

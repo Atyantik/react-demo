@@ -1,0 +1,35 @@
+@import 'scss/variable';
+@import 'scss/mixins';
+@import 'scss/reboot';
+@import 'scss/layout';
+@import 'scss/typography';
+@import 'scss/skeleton';
+@import 'scss/custom';
+@include font-face(
+  'Matter',
+  '../fonts/matter-bold/matter-bold',
+  700,
+  normal,
+  woff2 woff
+);
+@include font-face(
+  'Matter',
+  '../fonts/matter-semibold/matter-semibold',
+  600,
+  normal,
+  woff2 woff
+);
+@include font-face(
+  'Matter',
+  '../fonts/matter-medium/matter-medium',
+  500,
+  normal,
+  woff2 woff
+);
+@include font-face(
+  'Matter',
+  '../fonts/matter-regular/matter-regular',
+  400,
+  normal,
+  woff2 woff
+);

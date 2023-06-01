@@ -1,0 +1,13 @@
+.container {
+  width: min(100% - 2rem, rem(1280px));
+  margin-inline: auto;
+  position: relative;
+}
+
+.no-smooth-scroll {
+  scroll-behavior: auto;
+}
+
+.container-fluid {
+  width: min(100% - 2rem, 110rem);
+}

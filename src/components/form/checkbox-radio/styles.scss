@@ -1,0 +1,173 @@
+@import '@resources/css/scss/variable';
+@import '@resources/css/scss/mixins';
+.custom_Toggle {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  input[type='radio'],
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+    text-indent: -9999px;
+  }
+}
+
+.custom_Toggle {
+  input[type='radio'],
+  input[type='checkbox'] {
+    + .toggle_Label {
+      display: inline-grid;
+      font-family: $font-family;
+      position: relative;
+      font-size: rem(14px);
+      line-height: rem(22px);
+      min-height: rem(22px);
+      padding-left: rem(23px);
+      cursor: pointer;
+      transition: 0.2s all ease;
+      color: $black;
+      align-items: center;
+      &:before,
+      &:after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        cursor: pointer;
+        transition: transform 250ms ease;
+        border: 1px solid $black;
+        background-color: transparent;
+        border-radius: 4px;
+        margin-top: -8px;
+      }
+      &:after {
+        border-color: $primary;
+        background: $primary url('./images/check.svg') no-repeat center;
+        background-size: 8px 8px;
+        transform: scale(0);
+        color: $white;
+      }
+    }
+    &:checked {
+      + .toggle_Label {
+        &:before,
+        &:after {
+          border-color: $primary;
+        }
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      user-select: none;
+      pointer-events: none;
+      + .toggle_Label {
+        opacity: 0.5;
+        cursor: not-allowed;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+  &.custom_Toggle_Lg {
+    input[type='radio'],
+    input[type='checkbox'] {
+      + .toggle_Label {
+        &:before,
+        &:after {
+          content: '';
+          width: 18px;
+          height: 18px;
+          border-radius: 2px;
+          margin-top: -10px;
+        }
+        &:after {
+          background-size: 10px 8px;
+        }
+      }
+    }
+  }
+  &.round {
+    input[type='radio'],
+    input[type='checkbox'] {
+      + .toggle_Label {
+        &:before,
+        &:after {
+          content: '';
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+.custom_Toggle_Grey {
+  input[type='radio'],
+  input[type='checkbox'] {
+    + .toggle_Label {
+      color: $grey;
+      &:before,
+      &:after {
+        border-color: $grey;
+      }
+    }
+  }
+}
+.flex_1 {
+  flex: 1;
+}
+.font_10 {
+  input[type='radio'],
+  input[type='checkbox'] {
+    + .toggle_Label {
+      font-size: rem(10px);
+      line-height: rem(14px);
+      color: $grey;
+    }
+  }
+}
+.round_Radio_Btn {
+  input[type='radio'] {
+    + .toggle_Label {
+      &:after {
+        background-image: none;
+      }
+    }
+    &:checked {
+      + .toggle_Label {
+        &:before {
+          border-color: $primary;
+        }
+        &:after {
+          transform: scale(0.6);
+        }
+      }
+    }
+  }
+}
+.custom_Radio_Btn {
+  input[type='radio'],
+  input[type='checkbox'] {
+    + .toggle_Label {
+      border: 1px solid $grey;
+      padding: rem(10px) rem(24px);
+      border-radius: rem(8px);
+      color: $grey;
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+    &:checked {
+      + .toggle_Label {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+      }
+    }
+  }
+}

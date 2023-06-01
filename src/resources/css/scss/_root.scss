@@ -1,0 +1,19 @@
+// @function hexToRGB($hex) {
+//   @return red($hex), green($hex), blue($hex);
+// }
+// @function lightprimary($primaryColor) {
+//   @return mix($primaryColor, #ffffff, 20%);
+// }
+// @function darkprimary($primaryColor) {
+//   @return mix($primaryColor, #000000, 80%);
+// }
+// $primaryColor: #006763;
+// :root {
+//   --font-family: 'Matter', sans-serif;
+//   --font-size: 16px;
+//   --line-height: 24px;
+//   --primary-color: #{$primaryColor};
+//   --primary-color-rgb: #{hexToRGB($primaryColor)};
+//   --primary-color-light: #{lightprimary($primaryColor)};
+//   --primary-color-dark: #{darkprimary($primaryColor)};
+// }

@@ -1,0 +1,113 @@
+.bg_Black {
+  background-color: $black;
+}
+.bg_White {
+  background-color: $white;
+}
+.bg_Primary {
+  background-color: $primary;
+}
+.bg_Light_Primary {
+  background-color: $primary-light;
+}
+.bg_Dark_Primary {
+  background-color: $primary-dark;
+}
+.bg_Grey {
+  background-color: $grey;
+}
+.bg_Light_Grey {
+  background-color: $grey100;
+}
+.bg_Light_Green {
+  background-color: $light-green;
+}
+.text_Black {
+  color: $black;
+}
+.text_White {
+  color: $white;
+}
+.text_Primary {
+  color: $primary;
+}
+.text_Light_Primary {
+  color: $primary-light;
+}
+.text_Grey {
+  color: $grey;
+}
+.text_Light_Grey {
+  color: $grey100;
+}
+.text_Upparcase {
+  text-transform: uppercase;
+}
+.font-bold {
+  font-weight: $weight-bold;
+}
+.font-semibold {
+  font-weight: $weight-semibold;
+}
+.font-medium {
+  font-weight: $weight-medium;
+}
+.font-normal {
+  font-weight: $weight-normal;
+}
+.border_Grey {
+  border: 1px solid $grey300;
+}
+.text-truncate {
+  @include text-truncate;
+}
+.d-grid {
+  display: grid;
+}
+.mb_0 {
+  margin-bottom: 0;
+}
+.error_Text {
+  color: $danger;
+  margin-top: rem(2px);
+}
+.text_Danger {
+  color: $dark-danger;
+}
+.small_Text,
+.error_Text {
+  font-size: rem(12px);
+  line-height: rem(18px);
+}
+.w_12.w_12 {
+  width: rem(12px);
+}
+.w_11.w_11 {
+  width: rem(11px);
+}
+.text_Center {
+  text-align: center;
+}
+.modal-open {
+  padding-right: 0;
+  overflow: hidden;
+}
+.d_Block {
+  display: block;
+}
+.v_Text_Top.v_Text_Top {
+  vertical-align: text-top;
+}
+.md_Text {
+  font-size: rem(14px);
+  line-height: rem(22px);
+}
+.mb_4 {
+  margin-bottom: rem(4px);
+}
+.mb_16 {
+  margin-bottom: rem(16px);
+}
+.no_Wrap {
+  white-space: nowrap;
+}

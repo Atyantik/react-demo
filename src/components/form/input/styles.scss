@@ -1,0 +1,310 @@
+@import '@resources/css/scss/variable';
+@import '@resources/css/scss/mixins';
+.form_Group {
+  position: relative;
+  margin-bottom: rem(15px);
+  border-radius: rem(8px);
+}
+.form_Control {
+  font-family: $font-family;
+  padding: rem(10px) rem(16px);
+  border: 1px solid $grey200;
+  border-radius: rem(8px);
+  width: 100%;
+  font-size: rem(14px);
+  line-height: rem(22px);
+  color: $black;
+  caret-color: $primary;
+  outline: 0;
+  transition: 0.2s all ease-in-out;
+  &.form_Control_font_16 {
+    font-size: rem(16px);
+  }
+  &:not(.text_Area) {
+    @include placeholder {
+      @include text-truncate;
+    }
+  }
+  + label {
+    position: absolute;
+    top: rem(14px);
+    left: 0;
+    margin: 0 rem(8px);
+    padding: 0 rem(5px);
+    background-color: $white;
+    transition: top 0.2s ease-in-out;
+    pointer-events: none;
+  }
+  &:focus,
+  &:not(:placeholder-shown) {
+    outline: 0;
+    // border-color: $primary;
+    + label {
+      top: rem(-8px);
+    }
+  }
+  &:invalid,
+  &:not(:focus).error-not-focus {
+    border-color: $danger;
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px $white inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  &:not(.text_Area) {
+    @include text-truncate;
+  }
+  &:disabled,
+  &.disabled,
+  &:read-only {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+    ~ .left_Icon,
+    ~ .right_Icon {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+  .custom_Date &,
+  .custom_Select & {
+    &:read-only {
+      opacity: 1;
+      cursor: text;
+      pointer-events: auto;
+      user-select: auto;
+    }
+  }
+}
+.success,
+.loading {
+  .form_Control {
+    padding-right: rem(42px);
+  }
+  &:after {
+    content: '';
+    width: rem(20px);
+    height: rem(20px);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: rem(-10px) rem(16px) 0 0;
+    transition: 0.15s margin-right linear;
+  }
+}
+.success {
+  .form_Control {
+    border-color: $primary;
+  }
+  &:after {
+    background-color: $primary;
+    -webkit-mask: url('./images/checkmark.svg') no-repeat center;
+    mask: url('./images/checkmark.svg') no-repeat center;
+  }
+}
+.error {
+  .form_Control {
+    border-color: $danger;
+  }
+  .form_Label {
+    color: $danger;
+  }
+}
+.loading {
+  &:after {
+    background-color: $primary;
+    -webkit-mask: url('../../button/images/loader.svg') no-repeat center;
+    mask: url('../../button/images/loader.svg') no-repeat center;
+  }
+}
+.form_Label {
+  font-size: rem(12px);
+  line-height: rem(18px);
+  color: $grey;
+}
+.left_Icon,
+.right_Icon,
+.clear_Icon {
+  width: rem(40px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img,
+  svg {
+    width: rem(20px);
+    height: rem(20px);
+  }
+}
+.input_With_Left_Icon {
+  .form_Control {
+    padding-left: rem(42px);
+  }
+  .left_Icon {
+    left: 0;
+  }
+}
+.input_With_Right_Icon {
+  .form_Control {
+    padding-right: rem(42px);
+  }
+  .right_Icon,
+  .clear_Icon {
+    right: 0;
+  }
+  &.with_Clear {
+    .clear_Icon {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      &:after {
+        content: '';
+        -webkit-mask: url('@resources/svg-icons/clear.svg') no-repeat center;
+        mask: url('@resources/svg-icons/clear.svg') no-repeat center;
+        background-color: rgba($black, 0.3);
+        width: rem(20px);
+        height: rem(20px);
+        display: block;
+        margin: rem(-10px) rem(10px) 0 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+    .form_Control {
+      &:not(:placeholder-shown) {
+        ~ .clear_Icon {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+.input_Light_Grey,
+.text_Area_Grey,
+.input_Light_Grey .form_Control {
+  background-color: $grey100;
+  caret-color: $black;
+}
+.input_Light_Grey,
+.input_Light_Grey .form_Control {
+  border-color: $grey100;
+}
+.success.input_Light_Grey,
+.success.input_Light_Grey .form_Control {
+  border-color: $primary;
+}
+.input_Active {
+  .form_Control {
+    background-color: $primary;
+    color: $white;
+    caret-color: $white;
+  }
+  &.with_Clear {
+    .clear_Icon {
+      &:after {
+        background-color: $primary-light;
+      }
+    }
+  }
+}
+
+.text_Area_Grey {
+  border-color: $grey200;
+}
+.show_Password {
+  .right_Icon {
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 20px;
+      border-radius: 3px;
+      transform: rotate(-45deg);
+      margin-top: -10px;
+    }
+    &:after {
+      width: 1px;
+      background-color: $grey;
+    }
+    &:before {
+      width: 4px;
+      background-color: $white;
+    }
+  }
+}
+.text_Area {
+  font-family: $font-family;
+  padding: rem(8px);
+  font-size: rem(12px);
+  line-height: rem(18px);
+  resize: none;
+  height: rem(120px);
+}
+.count {
+  font-size: rem(10px);
+  line-height: rem(14px);
+  color: $grey;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 rem(14px) rem(8px);
+}
+.flex_1 {
+  flex: 1;
+}
+.mb_0 {
+  margin-bottom: 0;
+}
+.input_Text {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: rem(13px) rem(16px) 0 0;
+  font-weight: 400;
+  font-size: rem(12px);
+  line-height: rem(18px);
+  color: $primary;
+  cursor: default;
+}
+.verify_Phone {
+  + .input_Text {
+    &:after {
+      content: '';
+      background-color: $primary;
+      -webkit-mask: url('./images/verify.svg') no-repeat center;
+      mask: url('./images/verify.svg') no-repeat center;
+      width: rem(12px);
+      height: rem(12px);
+      margin-left: rem(2px);
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+  }
+}
+.otp_Container {
+  gap: rem(14px);
+  margin-bottom: rem(12px);
+}
+.otp_Input {
+  flex: 1;
+  input {
+    width: 100% !important;
+    padding: rem(5px);
+    height: rem(67px);
+    background-color: rgba($grey-light, 0.8);
+    border-color: rgba($grey-light, 0.8);
+    font-weight: 500;
+    font-size: rem(28px);
+    line-height: rem(34px);
+  }
+}

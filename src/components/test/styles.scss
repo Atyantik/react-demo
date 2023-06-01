@@ -1,0 +1,20 @@
+@import '@resources/css/scss/variable';
+@import '@resources/css/scss/mixins';
+.cat_Slider {
+  display: flex;
+  gap: rem(16px);
+  overflow-x: auto;
+  margin: 0 rem(-16px);
+  padding: 0 rem(16px);
+  scroll-behavior: smooth;
+  @include scrollbars(0, 0, 0, white, white, $grey200);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+  /* Firefox 64 */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}

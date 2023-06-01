@@ -1,0 +1,95 @@
+@use 'sass:color';
+@use 'sass:math';
+// @import 'root';
+@function rem($size) {
+  @return calc($size/ 16px) * 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              initial-variables                             */
+/* -------------------------------------------------------------------------- */
+// Colors
+$black: #1c1c1c !default;
+$white: #ffffff !default;
+$grey: #82868c !default;
+$grey-light: #f4f4f4 !default;
+$grey-lighter: hsl(0deg 0% 86%) !default;
+$grey-lightest: hsl(0deg 0% 93%) !default;
+$light-green: #cde3d7 !default;
+$grey100: #f2f2f2 !default;
+$grey200: #dadada !default;
+$grey300: #c4c4c4 !default;
+$grey400: #fbfbfb !default;
+
+$primary: var(--primary-color) !default;
+$danger: #e9693d !default;
+$dark-danger: #ef403d !default;
+$orange: #de8d73 !default;
+
+// Typography
+$font-family: var(--font-family) !default;
+$font-size: rem(16px);
+$line-height: rem(24px);
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+// Text colors
+$text: var(--text-color) !default;
+
+//breakpoints
+$xxl-device: 1440px; //1440+desktop
+$xl-device: 1280px; //1280+desktop
+$lg-device: 1024px; // 1024+ tablet
+$md-device: 768px; // 768+ tablet
+$sm-device: 767px; //375+ mobile
+$xs-device: 375px;
+
+// Miscellaneous
+
+$radius-small: 2px !default;
+$radius: 4px !default;
+$radius-large: 6px !default;
+$radius-rounded: 9999px !default;
+$border-radius: $radius;
+
+$css-variables: true !default;
+$at-root: true !default;
+$export: false !default;
+
+$primary-rgb: var(--primary-color-rgb) !default;
+$primary-light: var(--primary-color-light) !default;
+$primary-lighter: var(--primary-color-lighter) !default;
+$primary-dark: var(--primary-color-dark) !default;
+$secondary: $grey !default;
+
+//heading
+$h1-fontsize: rem(56px);
+$h1-lineheight: rem(74px);
+$h1-sm-fontsize: rem(32px);
+$h1-sm-lineheight: rem(38px);
+$h2-fontsize: rem(32px);
+$h2-lineheight: rem(38px);
+$h2-sm-fontsize: rem(20px);
+$h2-sm-lineheight: rem(28px);
+$h3-fontsize: rem(18px);
+$h3-lineheight: rem(28px);
+$h3-sm-fontsize: rem(16px);
+$h3-sm-lineheight: rem(22px);
+$h4-fontsize: rem(16px);
+$h4-lineheight: rem(26px);
+$h4-sm-fontsize: rem(14px);
+$h4-sm-lineheight: rem(22px);
+$h5-fontsize: rem(16px);
+$h5-lineheight: rem(19px);
+$h5-sm-fontsize: rem(14px);
+$h5-sm-lineheight: rem(22px);
+$h6-fontsize: rem(16px);
+$h6-lineheight: rem(19px);
+$h6-sm-fontsize: rem(12px);
+$h6-sm-lineheight: rem(18px);
+$link-fontsize: rem(16px);
+$link-lineheight: rem(19px);
+$link-sm-fontsize: rem(14px);
+$link-sm-lineheight: rem(17px);

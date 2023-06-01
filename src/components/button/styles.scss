@@ -1,0 +1,411 @@
+@import '@resources/css/scss/variable';
+@import '@resources/css/scss/mixins';
+.btn {
+  // all: unset;
+  cursor: pointer;
+  font-size: rem(18px);
+  line-height: rem(22px);
+  font-weight: $weight-semibold;
+  border-radius: rem(8px);
+  padding: rem(11px) rem(23.462px);
+  transition: all 0.3s ease;
+  text-align: center;
+  @include button-bg($primary);
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  &:disabled,
+  &.disabled {
+    @include button-bg($grey200);
+    color: $grey;
+    pointer-events: none;
+    user-select: none;
+    border-color: $grey200;
+  }
+}
+
+.btn_Secondary {
+  @include button-outline($grey);
+  &.loading {
+    &:after {
+      background-color: $grey;
+    }
+    &:before {
+      background-color: $white;
+    }
+  }
+}
+.btn_Sm,
+.btn_Link_Sm,
+.btn_Icon_Sm {
+  font-size: rem(14px);
+  line-height: rem(22px);
+}
+.btn_Active {
+  @include button-bg($primary);
+}
+.loading {
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  &:after,
+  &:before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    transition: 0.2s all linear;
+    z-index: 3;
+  }
+  &:after {
+    background-color: $white;
+    -webkit-mask: url('./images/loader.svg') no-repeat center;
+    mask: url('./images/loader.svg') no-repeat center;
+    mask-size: 80% 80%;
+  }
+  &:before {
+    background-color: $primary;
+  }
+}
+.btn_Link {
+  @include button-link($primary);
+  border-radius: 0;
+  &:disabled,
+  &.disabled {
+    background-color: transparent;
+    opacity: 0.5;
+    border: 0;
+    color: $primary;
+  }
+  &.is_Light {
+    opacity: 0.5;
+  }
+}
+.btn_Link_Icon,
+.btn_Icon {
+  img,
+  svg {
+    vertical-align: middle;
+  }
+  &.left {
+    img,
+    svg {
+      margin-right: rem(4px);
+    }
+    &.right img,
+    &.right svg {
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  &.right {
+    img,
+    svg {
+      margin-left: rem(4px);
+    }
+  }
+}
+.btn_Link_Icon {
+  img,
+  svg {
+    width: rem(14px);
+  }
+}
+.btn_Icon {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  img,
+  svg {
+    width: rem(18px);
+  }
+}
+.btn_Light_Grey {
+  @include button-bg($grey100);
+  color: $grey;
+  padding: rem(7.5px) rem(13px) rem(7.5px) rem(8px);
+  img,
+  svg {
+    filter: opacity(0.5);
+  }
+  &.is_Active {
+    color: $black;
+  }
+}
+.btn_Circle {
+  min-width: rem(32px);
+  min-height: rem(32px);
+  border-radius: rem(32px);
+  padding: 0;
+  justify-content: center;
+  img,
+  svg {
+    width: rem(20px);
+  }
+  &.with-qty {
+    padding: rem(1px) rem(11px);
+    min-width: rem(48px);
+    min-height: rem(32px);
+    span {
+      min-width: rem(20px);
+      margin-right: rem(4px);
+      font-weight: 500;
+    }
+    sub {
+      vertical-align: middle;
+      padding-left: rem(2px);
+      font-weight: 400;
+    }
+  }
+}
+.btn_Block {
+  width: 100%;
+}
+.btn_Sm {
+  padding: rem(9px) rem(23.462px);
+  font-weight: 500;
+}
+.btn_Xs {
+  padding: rem(5px) rem(10px);
+}
+
+.btn_Icon_Md {
+  padding: rem(10px) rem(12px);
+  font-size: rem(16px);
+  line-height: rem(22px);
+  img,
+  svg {
+    width: rem(20px);
+    height: rem(20px);
+  }
+  &.left {
+    img,
+    svg {
+      margin-right: rem(10px);
+    }
+  }
+  &.right {
+    img,
+    svg {
+      margin-left: rem(10px);
+    }
+  }
+}
+.btn_Link_Underline {
+  font-weight: 600;
+  font-size: rem(20px);
+  line-height: rem(28px);
+  color: $grey;
+  &:after {
+    content: '';
+    width: 0;
+    background-color: $primary;
+    height: rem(2px);
+    transition: width 0.2s ease, left 0.2s ease;
+    display: block;
+    left: 50%;
+    position: absolute;
+    bottom: rem(-2px);
+    border-radius: 0;
+  }
+  &.btn_Active {
+    color: $primary;
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+.btn_Store {
+  background-color: $primary;
+  -webkit-mask: url('./images/map_icon.svg') no-repeat center;
+  mask: url('./images/map_icon.svg') no-repeat center;
+  mask-size: rem(67px) rem(71px);
+  width: rem(67px);
+  height: rem(71px);
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: rem(-20px) 0 0 rem(-15px);
+    background: url('./images/store.svg') no-repeat center;
+    background-size: contain;
+    width: rem(32px);
+    height: rem(24px);
+  }
+  &.selected_Store {
+    background-color: $dark-danger;
+    mask-image: url('./images/map-white.svg');
+    -webkit-mask-image: url('./images/map-white.svg');
+    &:after {
+      display: none;
+    }
+  }
+}
+.btn_Locate {
+  padding: rem(4px) rem(8px) rem(4px) rem(34px);
+  background-color: $white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
+  color: $black;
+  border-color: $white;
+  &:after {
+    content: '';
+    background-color: $primary;
+    -webkit-mask: url('./images/locate.svg') no-repeat center;
+    mask: url('./images/locate.svg') no-repeat center;
+    mask-size: rem(17px) rem(17px);
+    width: rem(17px);
+    height: rem(17px);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin: rem(-8.5px) 0 0 rem(9.5px);
+  }
+}
+
+.btn_Link_Store,
+.btn_Link_Down_Arrow,
+.btn_Link_Right_Arrow,
+.btn_Link_Left_Arrow {
+  padding: rem(5px) rem(22px);
+  font-size: rem(16px);
+  line-height: rem(22px);
+  display: inline-grid;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    background-color: $primary;
+    right: 0;
+    margin-top: rem(5px);
+    -webkit-mask: url('./images/arrow.svg') no-repeat center;
+    mask: url('./images/arrow.svg') no-repeat center;
+    mask-size: rem(14px) rem(14px);
+    width: rem(24px);
+    height: rem(24px);
+  }
+}
+.btn_Link_Right_Arrow {
+  &:after {
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+}
+.btn_Link_Left_Arrow {
+  &.grey_Text {
+    color: rgba($black, 0.5);
+    font-size: rem(14px);
+    line-height: rem(17px);
+    font-weight: 500;
+    &:after {
+      margin-top: rem(2px);
+    }
+  }
+  &:after {
+    right: auto;
+    left: 0;
+    transform: rotate(90deg);
+    transform-origin: center;
+    margin-top: rem(4px);
+  }
+}
+.btn_Pagination {
+  &.btn_Link_Right_Arrow,
+  &.btn_Link_Left_Arrow {
+    color: $grey;
+    &:after {
+      background-color: $grey;
+    }
+  }
+  &.btn_Link_Left_Arrow {
+    padding-right: rem(8px);
+  }
+  &.btn_Link_Right_Arrow {
+    padding-left: rem(8px);
+  }
+  &.btn_Active {
+    &.btn_Link_Right_Arrow,
+    &.btn_Link_Left_Arrow {
+      color: $primary;
+      &:after {
+        background-color: $primary;
+      }
+    }
+  }
+}
+.btn_Link_Store {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    background-color: $primary;
+    left: 0;
+    margin-top: rem(-7px);
+    -webkit-mask: url('./images/store-outline.svg') no-repeat center;
+    mask: url('./images/store-outline.svg') no-repeat center;
+    mask-size: rem(18px) rem(13px);
+    width: rem(18px);
+    height: rem(13px);
+  }
+}
+.btn_Link_Menu {
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    width: rem(24px);
+    height: rem(2px);
+    background-color: $primary;
+  }
+  &:after {
+    margin-top: rem(6px);
+  }
+}
+.btn_Left_Arrow {
+  &:after {
+    content: '';
+    -webkit-mask: url('@resources/svg-icons/arrow.svg') no-repeat center;
+    mask: url('@resources/svg-icons/arrow.svg') no-repeat center;
+    mask-size: rem(18px) rem(13px);
+    width: rem(18px);
+    height: rem(13px);
+    background-color: $primary;
+  }
+}
+//social icons
+.btn_Fb,
+.btn_Twitter,
+.btn_Instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary;
+  width: rem(36px);
+  height: rem(36px);
+}
+.btn_Fb {
+  -webkit-mask: url('@components/footer/images/fb.svg') no-repeat center;
+  mask: url('@components/footer/images/fb.svg') no-repeat center;
+}
+.btn_Twitter {
+  -webkit-mask: url('@components/footer/images/twitter.svg') no-repeat center;
+  mask: url('@components/footer/images/twitter.svg') no-repeat center;
+}
+.btn_Instagram {
+  -webkit-mask: url('@components/footer/images/instagram.svg') no-repeat center;
+  mask: url('@components/footer/images/instagram.svg') no-repeat center;
+}
+.btn_Small_Text {
+  font-size: rem(12px);
+  line-height: rem(20px);
+}
