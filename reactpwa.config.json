@@ -1,0 +1,18 @@
+{
+  "react": {
+    "strictMode": false
+  },
+  "hotReload": true,
+  "serviceWorker": false,
+  "alias": {
+    "@components": "./src/components/",
+    "@pages": "./src/pages/",
+    "@utils": "./src/utils/",
+    "@resources": "./src/resources/",
+    "@routes": "./src/routes/",
+    "@hooks": "./src/hooks/",
+    "@services": "./src/services/",
+    "@atoms": "./src/atoms/",
+    "@typedefs": "./src/typedefs/"
+  }
+}
